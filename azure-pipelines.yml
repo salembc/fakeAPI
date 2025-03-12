@@ -9,20 +9,21 @@ trigger:
 
 pool:
   name: 'PCMR-pool'  # Reemplaza con el nombre del pool que creaste
-  demands:
-  - agent.name -equals 'PCMR-agent'
 
 steps:
 - script: echo "Running on Self-Hosted Agent"
   displayName: 'Check Agent'
-
-- task: Maven@3
-  displayName: 'Run API Tests'
+- task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'test'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
 
 - task: PublishTestResults@2
   displayName: 'Publish JUnit Test Results'
