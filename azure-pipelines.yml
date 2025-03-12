@@ -10,7 +10,7 @@ trigger:
 pool:
   name: 'PCMR-agent'  # Reemplaza con el nombre del pool que creaste
   demands:
-    - agent.name -equals MyAgent  # (Opcional) Si tienes varios agentes en el pool, elige uno específico
+    - agent.name -equals Self-Hosted-Pool  # (Opcional) Si tienes varios agentes en el pool, elige uno específico
 
 steps:
 - script: echo "Running on Self-Hosted Agent"
