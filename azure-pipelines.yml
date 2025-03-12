@@ -13,25 +13,18 @@ pool:
 steps:
 - script: echo "Running on Self-Hosted Agent"
   displayName: 'Check Agent'
+
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
+    goals: 'test'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'Path'
     jdkDirectory: 'C:\Program Files\Java\jdk-20'
     mavenVersionOption: 'Path'
     mavenDirectory: 'C:\apache-maven-3.9.8'
-    mavenSetM2Home: false
+    mavenSetM2Home: true
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-
-- task: PublishTestResults@2
-  displayName: 'Publish JUnit Test Results'
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    mergeTestResults: true
-    testRunTitle: 'API Test Results'
-
