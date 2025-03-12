@@ -28,3 +28,11 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+
+- task: PublishTestResults@2
+  displayName: 'Publish JUnit Test Results'
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    mergeTestResults: true
+    testRunTitle: 'API Test Results'
