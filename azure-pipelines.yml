@@ -8,18 +8,27 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  name: 'PCMR-agent'  # Reemplaza con el nombre del pool que creaste
+  demands:
+    - agent.name -equals MyAgent  # (Opcional) Si tienes varios agentes en el pool, elige uno específico
 
 steps:
-- task: Maven@4
+- script: echo "Running on Self-Hosted Agent"
+  displayName: 'Check Agent'
+
+- task: Maven@3
+  displayName: 'Run API Tests'
   inputs:
-    azureSubscription: 'Azure subscription 1(9c6a8b76-47b4-4fa5-81a8-6f37afe06ba0)'
     mavenPomFile: 'pom.xml'
     goals: 'test'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
+
+- task: PublishTestResults@2
+  displayName: 'Publish JUnit Test Results'
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    mergeTestResults: true
+    testRunTitle: 'API Test Results'
+
