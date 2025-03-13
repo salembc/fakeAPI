@@ -45,3 +45,10 @@ steps:
     testSuite: '18'
     searchFolder: '$(System.DefaultWorkingDirectory)'
     testRunTitle: 'Automated Tests'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    mergeTestResults: true
+    failTaskOnFailedTests: false
