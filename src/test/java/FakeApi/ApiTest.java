@@ -61,6 +61,7 @@ public class ApiTest {
     }
 
     @Test
+    @DisplayName("[TestCaseID:19]")
     public void CP001() {
         try {
 
@@ -96,8 +97,8 @@ public class ApiTest {
     }
 
     @Test    
+    @DisplayName("[TestCaseID:20]")
     public void CP002() {
-
         try {
 
             Map<String, String> headers = new HashMap<>();
