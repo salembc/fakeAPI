@@ -97,7 +97,7 @@ public class ApiTest {
     }
 
     @Test
-    @DisplayName("[TestCaseID:20] - Assertion failed")
+    @DisplayName("[TestCaseID:20] - Obteniendo usuario")
     public void CP002() {
 
         try {
@@ -108,7 +108,7 @@ public class ApiTest {
             Response response = requestBuilder.sendGetRequest(headers);
             response.prettyPrint();
 
-            assertEquals(400, response.getStatusCode());
+            assertEquals(200, response.getStatusCode());
 
         } catch (Exception e) {
             e.printStackTrace();
