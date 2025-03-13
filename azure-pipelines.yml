@@ -41,7 +41,7 @@ steps:
   displayName: 'Associate tests with Azure Test Plan'
   inputs:
     testSelector: 'testPlan'
-    testPlan: 'API Automation'
-    testSuite: 'API Automation'
+    testPlan: '16'
+    testSuite: '18'
     searchFolder: '$(System.DefaultWorkingDirectory)'
     testRunTitle: 'Automated Tests'
