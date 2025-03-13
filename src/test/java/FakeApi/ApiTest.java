@@ -61,7 +61,6 @@ public class ApiTest {
     }
 
     @Test
-    @DisplayName("[TestCaseID:19] - Crear usuario")
     public void CP001() {
         try {
 
@@ -96,8 +95,7 @@ public class ApiTest {
 
     }
 
-    @Test
-    @DisplayName("[TestCaseID:20] - Obteniendo usuario")
+    @Test    
     public void CP002() {
 
         try {
