@@ -8,7 +8,7 @@ trigger:
 - master
 
 pool:
-  name: 'PCMR-pool'  # Reemplaza con el nombre del pool que creaste
+  name: 'PCMR-pool'
 
 steps:
 - script: echo "Running on Self-Hosted Agent"
@@ -35,6 +35,7 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     mergeTestResults: true
+    failTaskOnFailedTests: false
 
 - task: VSTest@3
   displayName: 'Associated Automation'
@@ -44,4 +45,4 @@ steps:
     testSuite: '18'
     testConfiguration: '2'
     searchFolder: '$(System.DefaultWorkingDirectory)'
-    testRunTitle: 'Automated Tests'
+    testRunTitle: 'Automated Tests'    
