@@ -61,7 +61,7 @@ public class ApiTest {
     }
 
     @Test
-    @DisplayName("apiFake - petición POST")
+    @DisplayName("[TestCaseID:19] - Crear usuario")
     public void CP001() {
         try {
 
@@ -97,7 +97,7 @@ public class ApiTest {
     }
 
     @Test
-    @DisplayName("apiFake - petición GET")
+    @DisplayName("[TestCaseID:20] - Assertion failed")
     public void CP002() {
 
         try {
@@ -108,7 +108,7 @@ public class ApiTest {
             Response response = requestBuilder.sendGetRequest(headers);
             response.prettyPrint();
 
-            assertEquals(200, response.getStatusCode());
+            assertEquals(400, response.getStatusCode());
 
         } catch (Exception e) {
             e.printStackTrace();
