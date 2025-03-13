@@ -36,3 +36,12 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     mergeTestResults: true
     testRunTitle: 'API Test Results'
+
+- task: VSTest@3
+  displayName: 'Associate tests with Azure Test Plan'
+  inputs:
+    testSelector: 'testPlan'
+    testPlan: 'API Automation'
+    testSuite: 'API Automation'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    testRunTitle: 'Automated Tests'
