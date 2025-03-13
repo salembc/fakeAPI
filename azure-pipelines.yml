@@ -35,4 +35,13 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     mergeTestResults: true
-    testRunTitle: 'API Test Results'
+
+- task: VSTest@3
+  displayName: 'Associated Automation'
+  inputs:
+    testSelector: 'testPlan'
+    testPlan: '16'
+    testSuite: '18'
+    testConfiguration: '2'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    testRunTitle: 'Automated Tests'
