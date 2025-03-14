@@ -41,6 +41,5 @@ steps:
   displayName: 'Run Automated Tests'
   inputs:
     testSelector: 'testPlan'
-    # Removed testPlan, testSuite, and testConfiguration as they are not relevant for Maven-based Java project
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    # testRunTitle: 'Automated Tests'    
+    testSuite: '18'
+    searchFolder: '$(System.DefaultWorkingDirectory)'    
