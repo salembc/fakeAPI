@@ -38,11 +38,9 @@ steps:
     failTaskOnFailedTests: false
 
 - task: VSTest@3
-  displayName: 'Associated Automation'
+  displayName: 'Run Automated Tests'
   inputs:
     testSelector: 'testPlan'
-    testPlan: '16'
-    testSuite: '18'
-    testConfiguration: '2'
+    # Removed testPlan, testSuite, and testConfiguration as they are not relevant for Maven-based Java project
     searchFolder: '$(System.DefaultWorkingDirectory)'
-    testRunTitle: 'Automated Tests'    
+    # testRunTitle: 'Automated Tests'    
