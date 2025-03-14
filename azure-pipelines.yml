@@ -43,4 +43,5 @@ steps:
     testSelector: 'testPlan'
     testPlan: '16'
     testSuite: '18'
+    testConfiguration: '2'
     searchFolder: '$(System.DefaultWorkingDirectory)'    
