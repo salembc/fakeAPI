@@ -41,5 +41,6 @@ steps:
   displayName: 'Run Automated Tests'
   inputs:
     testSelector: 'testPlan'
+    testPlan: '16'
     testSuite: '18'
     searchFolder: '$(System.DefaultWorkingDirectory)'    
